@@ -50,3 +50,23 @@ form.verify({
         }
     },
 });
+
+//登录功能--------------------------------
+//表单提交--阻止默认行为--收集表单数据--ajax提交
+$(".login form").on("submit", function (e) {
+    e.preventDefault();
+    var data = $(this).serialize();
+    $.ajax({
+        url: "/api/login",
+        type: "POST",
+        data: data,
+        success: function (res) {
+            if (res.status === 0) {
+                //登录成功,保存token
+                localStorage.setItem("token", res.token);
+                //跳转到首页面index.html
+                location.href = "./index.html";
+            }
+        },
+    });
+});
