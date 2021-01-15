@@ -1,0 +1,30 @@
+/* 字体图标处理 */
+.layui-icon {
+    margin: 0 5px;
+    font-size: 16px;
+    vertical-align: top;
+}
+.layui-icon-app {
+    margin-right: 10px;
+}
+/* 头像处理 */
+.userinfo {
+    height: 55px;
+    line-height: 55px;
+    text-align: center;
+}
+/* 文字头像处理 */
+.text-avatar {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-color: #419488;
+    line-height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 20px;
+}
+/* 默认让两个头像都隐藏 */
+.text-avatar,.layui-nav-img {
+    display: none;
+}
