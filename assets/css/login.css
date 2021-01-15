@@ -1,0 +1,49 @@
+html,body {
+    height: 100%;
+}
+body {
+    background-color: #5ea0f1;
+}
+#logo {
+    margin: 20px 0 0 240px;
+}
+
+
+
+/* 登录和注册盒子 */
+.box {
+    height: 310px;
+    width: 400px;
+    background-color: #f8d673;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    box-shadow: 5px 5px 5px 5px;
+}
+.title {
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 26px;
+}
+/* 表单 */
+form {
+    margin: 0 30px;
+
+}
+form a {
+    float: right;
+}
+/* 字体图标 */
+.layui-form-item {
+    position: relative;
+}
+.layui-icon {
+    position: absolute;
+    left: 6px;
+    top: 11px;
+}
+.layui-input {
+    padding-left: 26px;
+}
