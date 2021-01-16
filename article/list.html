@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/lib/layui/css/layui.css">
+    <link rel="stylesheet" href="./css/list.css">
+</head>
+
+<body>
+    <div class="layui-card">
+        <div class="layui-card-header">卡片面板</div>
+        <div class="layui-card-body">
+            <!-- 内容区  表单搜索区start -->
+            <form class="layui-form" action="">
+                <div class="layui-form-item">
+
+                    <div class="layui-inline">
+                        <div class="layui-input-inline" style="width: 200px;">
+                            <select name="city" lay-verify="">
+                                <option value="">请选择一个城市</option>
+                                <option value="010">北京</option>
+                                <option value="021">上海</option>
+                                <option value="0571">杭州</option>
+                            </select>
+                        </div>
+                        <div class="layui-input-inline" style="width: 200px;">
+                            <select name="city" lay-verify="">
+                                <option value="">请选择一个城市</option>
+                                <option value="010">北京</option>
+                                <option value="021">上海</option>
+                                <option value="0571">杭州</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="layui-inline">
+                        <div class="layui-input-inline" style="width: 100px;">
+                            <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+            <!-- 内容区  表单搜索区end -->
+
+            <!-- 内容区二 表格区start -->
+            <table class="layui-table">
+                <colgroup>
+                    <col width="40%">
+                    <col width="15%">
+                    <col width="15%">
+                    <col width="15%">
+                    <col>
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>文章标题</th>
+                        <th>分类</th>
+                        <th>发布时间</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>火影忍者</td>
+                        <td>动漫</td>
+                        <td>2021-01-16</td>
+                        <td>已发布</td>
+                        <td>
+                            <button type="button" class="layui-btn layui-btn layui-btn-xs">编辑</button>
+                            <button type="button"
+                                class="layui-btn layui-btn layui-btn-xs layui-btn layui-btn-danger">删除</button>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+            <!-- 内容区二 表格区end -->
+
+            <!-- 内容区三 分页区start -->
+            <div id="page"></div>
+            <!-- 内容区三 分页区end -->
+        </div>
+    </div>
+
+
+
+
+    <script src="../assets/lib/layui/layui.all.js"></script>
+    <script src="../assets/lib/jquery.js"></script>
+    <!-- 在jq之后,按照顺序加载 -->
+    <script src="../assets/lib/cropper/Cropper.js"></script>
+    <script src="../assets/lib/cropper/jquery-cropper.js"></script>
+    <script src="../assets/js/common.js"></script>
+    <script src="./js/list.js"></script>
+</body>
+
+</html>
