@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录页面</title>
+    <!-- 先引入layui.css -->
+    <link rel="stylesheet" href="../assets/lib/layui/css/layui.css">
+    <!-- 再引入自己的css -->
+    <link rel="stylesheet" href="../assets/css/category.css">
+</head>
+
+<body>
+    <div class="layui-card">
+        <div class="layui-card-header">
+            <!-- 面板的标题区 -->
+            类别管理
+            <button type="button" class="layui-btn layui-btn-normal layui-btn layui-btn-sm">添加类别</button>
+        </div>
+
+        <div class="layui-card-body">
+            <table class="layui-table">
+                <!-- colgroup调整列宽 -->
+                <colgroup>
+                    <col width="40%">
+                    <col width="40%">
+                    <col>
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>分类名称</th>
+                        <th>分类别名</th>
+                        <th>签名</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 类别列表的模板 start -->
+    <script type="text/html" id="tpl-list">
+        {{each data item}}
+        <tr>
+            <td>{{item.name}}</td>
+            <td>{{item.alias}}</td>
+            <td>
+                <button data-id="{{item.id}}" data-name="{{item.name}}" data-alias="{{item.alias}}" type="button"
+                    class="layui-btn layui-btn layui-btn-xs layui-btn">编辑</button>
+                <button type="button" class="layui-btn layui-btn layui-btn-xs layui-btn layui-btn layui-btn-danger del"
+                    data-id="{{item.id}}">删除</button>
+            </td>
+        </tr>
+        {{/each}}
+    </script>
+    <!-- 类别列表的模板end -->
+
+    <!-- 添加的模板start -->
+    <script type="text/html" id="tpl-add">
+        <form class="layui-form" id="add-form" action="" style="margin:25px 25px 0 0">
+            <!-- 类别名称 -->
+            <div class="layui-form-item">
+                <label class="layui-form-label">类别名称</label>
+                <div class="layui-input-block">
+                    <input type="text" name="name" required lay-verify="required" placeholder="请输入名称" autocomplete="off"
+                        class="layui-input">
+                </div>
+            </div>
+
+            <!-- 类别别名 -->
+            <div class="layui-form-item">
+                <label class="layui-form-label">类别别名</label>
+                <div class="layui-input-block">
+                    <input type="text" name="alias" required lay-verify="required" placeholder="请输入别名"
+                        autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <!-- 按钮 -->
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                </div>
+            </div>
+        </form>
+    </script>
+    <!-- 添加的模板end -->
+
+
+    <!-- 编辑模板 -->
+    <script type="text/html" id="tpl-edit">
+        <form class="layui-form" id="edit-form" action="" style="margin:25px 25px 0 0">
+            <!-- 类别名称 -->
+            <div class="layui-form-item">
+                <label class="layui-form-label">类别名称</label>
+                <div class="layui-input-block">
+                    <input type="text" name="name" required lay-verify="required" placeholder="请输入名称" autocomplete="off"
+                        class="layui-input">
+                </div>
+            </div>
+
+            <!-- 类别别名 -->
+            <div class="layui-form-item">
+                <label class="layui-form-label">类别别名</label>
+                <div class="layui-input-block">
+                    <input type="text" name="alias" required lay-verify="required" placeholder="请输入别名"
+                        autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <!-- 按钮 -->
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <input type="hidden" name='id'>
+                    <button class="layui-btn" lay-submit lay-filter="formDemo">确认编辑</button>
+                </div>
+            </div>
+        </form>
+    </script>
+    <!-- 建议在body结尾之前,引入js,因为当js执行的时候,页面元素肯定加载完了 -->
+    <script src="../assets/lib/layui/layui.all.js"></script>
+    <script src="../assets/lib/jquery.js"></script>
+    <script src="../assets/lib/template-web.js"></script>
+    <script src="../assets/js/common.js"></script>
+    <script src="../assets/js/category.js"></script>
+</body>
+
+</html>
