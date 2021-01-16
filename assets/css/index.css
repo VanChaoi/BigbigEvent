@@ -2,7 +2,7 @@
 .layui-icon {
     margin: 0 5px;
     font-size: 16px;
-    vertical-align: top;
+  
 }
 .layui-icon-app {
     margin-right: 10px;
@@ -27,4 +27,12 @@
 /* 默认让两个头像都隐藏 */
 .text-avatar,.layui-nav-img {
     display: none;
+}
+/* 内容主题区 */
+.layui-body {
+    overflow: hidden;
+}
+iframe{
+    width: 100%;
+    height: 100%;
 }
