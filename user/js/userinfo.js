@@ -19,3 +19,28 @@ function renderUser() {
     });
 }
 renderUser();
+
+//修改信息-------------------------------
+$("form").on("submit", function (e) {
+    e.preventDefault();
+    var data = $(this).serializeArray();
+    // console.log(data);
+    $.ajax({
+        type: "POST",
+        url: "/my/user/userinfo",
+        data: data,
+        success: function (res) {
+            layer.msg(res.message);
+            if (res.status === 0) {
+                //调用getUserInfo()更新昵称
+                window.parent.getUserInfo();
+            }
+        },
+    });
+});
+
+//重置--------------------------------------
+$("button[type=reset]").on("click", function (e) {
+    e.preventDefault();
+    renderUser();
+});
