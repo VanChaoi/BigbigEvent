@@ -15,7 +15,13 @@ $.ajaxPrefilter(function (option) {
         //判断token是否过期
         if (res && res.status === 1 && res.message === "身份认证失败！") {
             localStorage.removeItem("token");
-            location.href = "./login.html";
+            // 跳转登录页面
+            //location.pathname 表示地址路径部分
+            if (location.pathname === "/index.html") {
+                location.href = "./login.html";
+            } else {
+                window.parent.location.href = "../login.html";
+            }
         }
         //处理错误提示
         if (res && res.status === 1) {

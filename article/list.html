@@ -11,34 +11,30 @@
 
 <body>
     <div class="layui-card">
-        <div class="layui-card-header">卡片面板</div>
+        <div class="layui-card-header">文章列表</div>
         <div class="layui-card-body">
             <!-- 内容区  表单搜索区start -->
-            <form class="layui-form" action="">
+            <form class="layui-form" id="seach" action="">
                 <div class="layui-form-item">
 
                     <div class="layui-inline">
                         <div class="layui-input-inline" style="width: 200px;">
-                            <select name="city" lay-verify="">
-                                <option value="">请选择一个城市</option>
-                                <option value="010">北京</option>
-                                <option value="021">上海</option>
-                                <option value="0571">杭州</option>
+                            <select id="category" lay-verify="">
+                                <option value="">请选择分类</option>
                             </select>
                         </div>
                         <div class="layui-input-inline" style="width: 200px;">
-                            <select name="city" lay-verify="">
-                                <option value="">请选择一个城市</option>
-                                <option value="010">北京</option>
-                                <option value="021">上海</option>
-                                <option value="0571">杭州</option>
+                            <select id="state" lay-verify="">
+                                <option value="">请选择状态</option>
+                                <option value="已发布">已发布</option>
+                                <option value="草稿">草稿</option>
                             </select>
                         </div>
                     </div>
 
                     <div class="layui-inline">
                         <div class="layui-input-inline" style="width: 100px;">
-                            <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+                            <button class="layui-btn" lay-submit lay-filter="formDemo">筛选</button>
                         </div>
                     </div>
 
@@ -65,17 +61,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>火影忍者</td>
-                        <td>动漫</td>
-                        <td>2021-01-16</td>
-                        <td>已发布</td>
-                        <td>
-                            <button type="button" class="layui-btn layui-btn layui-btn-xs">编辑</button>
-                            <button type="button"
-                                class="layui-btn layui-btn layui-btn-xs layui-btn layui-btn-danger">删除</button>
-                        </td>
-                    </tr>
+
 
                 </tbody>
             </table>
@@ -86,15 +72,37 @@
             <!-- 内容区三 分页区end -->
         </div>
     </div>
+    <!--文章列表 模板 -->
+    <script type="text/html" id="tpl-article">
+        {{each data item}}
+        <tr>
+            <td>{{item.title}}</td>
+            <td>{{item.cate_name}}</td>
+            <td>{{item.pub_date|dateFormate}}</td>
+            <td>{{item.state}}</td>
+            <td>
+                <a href="./edit.html?id={{item.id}}" class="layui-btn layui-btn-xs">编辑</a>
+                <button type="button" 
+                    class="layui-btn layui-btn layui-btn-xs layui-btn layui-btn-danger del" data-id={{item.id}}>删除</button>
+            </td>
+        </tr>
+        {{/each}}
+    </script>
+    <!-- 下拉框的分类模板 -->
+    <script type="text/html" id="tpl-category">
+        {{each data item}}
+        <option value="010">{{item.name}}</option>
+        {{/each}}
+    </script>
 
 
-
-
+    <script src="../assets/lib/time.js"></script>
     <script src="../assets/lib/layui/layui.all.js"></script>
     <script src="../assets/lib/jquery.js"></script>
     <!-- 在jq之后,按照顺序加载 -->
     <script src="../assets/lib/cropper/Cropper.js"></script>
     <script src="../assets/lib/cropper/jquery-cropper.js"></script>
+    <script src="../assets/lib/template-web.js"></script>
     <script src="../assets/js/common.js"></script>
     <script src="./js/list.js"></script>
 </body>

@@ -1,3 +1,8 @@
+// 更换内容区为富文本------------------------
+initEditor();
+//获取地址栏的id参数---------------------------------
+var id = new URLSearchParams(location.search).get("id");
+
 //获取分类-----------------------------
 //渲染到下拉框的位置
 var form = layui.form;
@@ -8,15 +13,29 @@ $.ajax({
         $("select[name=cate_id]").append(str);
         // form.render('select','lay-filter属性值')
         form.render("select");
+        $.ajax({
+            url: "/my/article/" + id,
+            success: function (res) {
+                console.log(res.data);
+                //使用layui的form.val()
+                form.val("article", res.data);
+                // tinyMCE.activeEditor.setContent(res.data.content);
+                $image
+                    .cropper("destroy")
+                    .attr("src", baseUrl + "/" + res.data.cover_img)
+                    .cropper(option);
+            },
+        });
     },
 });
-// 更换内容区为父文本------------------------
-initEditor();
+
 //封面图片处理-------------------------------
 // 初始化剪裁框
 var $image = $("#image");
 // - 设置配置项
 var option = {
+    // 宽高比
+    aspectRatio: 400 / 280,
     // 纵横比(宽高比)
     aspectRatio: 1, // 正方形
     // 指定预览区域
@@ -48,8 +67,9 @@ $("form").on("submit", function (e) {
     });
     canvas.toBlob(function (blob) {
         fd.append("cover_img", blob);
+        fd.append("id", id);
         $.ajax({
-            url: "/my/article/add",
+            url: "/my/article/update",
             type: "POST",
             data: fd,
             processData: false, //不要把fd对象转成查询字符串

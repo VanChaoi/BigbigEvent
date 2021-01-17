@@ -14,7 +14,7 @@
     <div class="layui-card">
         <div class="layui-card-header">发布文章</div>
         <div class="layui-card-body">
-            <form class="layui-form" action="">
+            <form class="layui-form" action="" lay-filter="article">
                 <!-- 第一项 标题 -->
                 <div class="layui-form-item">
                     <label class="layui-form-label">文章标题</label>
@@ -71,7 +71,7 @@
                 <!-- 第六项:按钮 -->
                 <div class="layui-form-item">
                     <div class="layui-input-block">
-                        <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+                        <button class="layui-btn" lay-submit lay-filter="formDemo">确认修改</button>
                     </div>
                 </div>
             </form>
@@ -82,7 +82,7 @@
     <!-- 下拉框的分类模板 -->
     <script type="text/html" id="tpl-category">
         {{each data item}}
-        <option value="010">{{item.name}}</option>
+        <option value="{{item.id}}">{{item.name}}</option>
         {{/each}}
     </script>
 
@@ -98,7 +98,7 @@
     <script src="../assets/lib/cropper/Cropper.js"></script>
     <script src="../assets/lib/cropper/jquery-cropper.js"></script>
     <script src="../assets/js/common.js"></script>
-    <script src="./js/add.js"></script>
+    <script src="./js/edit.js"></script>
 </body>
 
 </html>
